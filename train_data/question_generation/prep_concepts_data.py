@@ -15,9 +15,9 @@ def prep_squad(save_path, lim=1000):
     inputs = get_data_inputs('squad', sampled_data)
 
     # get concept outputs prepped data
-    instruction = 'Given the input context, generate a question on the context to <DIRECTION> the <CONCEPT> of the question generated. Return only the output question and nothing else.'
-    concepts = ['formality', 'difficulty', 'language complexity']
-    concept_descriptions = ['How formal the tone of the question is.', 'How challenging the question is based on how difficult it is to find the answer in the context.', 'The complexity of the language choice in the question.']
+    instruction = 'Given the input context, generate a question that can be answered using the context. Ensure you <DIRECTION> the <CONCEPT> of the question generated. Return only the output question and nothing else.'
+    concepts = ['humour', 'difficulty', 'linguistic complexity']
+    concept_descriptions = ['How funny the tone of the question is.', 'How challenging the question is based on how many logical inferences have to made to find the answer in the context.', 'The complexity of the language choice in the question, such as word choice, structure and grammar.']
     prepped_data = prep_concepts_data(inputs, instruction, concepts, concept_descriptions)
 
     # save prepped data
