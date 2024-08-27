@@ -33,7 +33,7 @@ def get_data_inputs(data_name, data):
     return inputs
 
 def prep_concepts_data(inputs, instruction, concepts, concept_descriptions, directions=['maximize', 'minimize']):
-    llm = OpenAIModel('gpt-4o')
+    llm = OpenAIModel('gpt4o')
     prepped_data = []
     for input in tqdm(inputs):
         output_concept = {}

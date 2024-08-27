@@ -1,14 +1,10 @@
 from openai import OpenAI
 import openai
 
-with open('/home/ubuntu/keys/openai.txt', 'r') as f:
+with open('/home/vr313/rds/hpc-work/Projects/Control/multi-concept-steering-llm/experiments/keys/openai.txt', 'r') as f:
     key_str = f.read()
 API_KEY = key_str.strip('\n')
 openai.api_key = API_KEY
-
-with open('/home/vr313/rds/hpc-work/Projects/Control/multi-concept-steering-llm/experiments/keys/openai.txt', 'r') as f:
-    key_str = f.read()
-PERPLEXITY_API_KEY = key_str.strip('\n')
 
 OPENAI_MODELS = {
     "gpt3.5": "gpt-3.5-turbo",
@@ -19,9 +15,9 @@ OPENAI_MODELS = {
 class OpenAIModel:
     """Class wrapper for models that interact with a OpenAI API"""
 
-    def __init__(self, model_name = "gpt4o", api_key='', system_prompt=None):
+    def __init__(self, model_name = "gpt4o", system_prompt=None):
         self.model_name = OPENAI_MODELS[model_name]
-        self.client = OpenAI(api_key=api_key)
+        self.client = OpenAI(api_key=API_KEY)
         self.system_prompt = system_prompt
     
     def predict(self, prompt):
